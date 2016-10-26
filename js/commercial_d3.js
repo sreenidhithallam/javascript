@@ -1,37 +1,8 @@
-<!DOCTYPE html>
-<meta charset="utf-8">
 
-<head>
-   <title>Bar chart for aggregrated values of commercial crops vs year</title>
-    <h1 align="center">Bar chart for aggregrated values of commercial crops vs year</h1>
-  <style>
-      .bar
-      {
-        fill: steelblue;
-      }
-      .axis 
-      {
-        font: 10px sans-serif;
-      }
-      .axis path,.axis line 
-      {
-        fill: none;
-        stroke: #000;
-        shape-rendering: crispEdges;
-      }
-    </style>
-</head>
-
-<body>
-  
-<script src="http://d3js.org/d3.v3.min.js"></script>
-
-<script>
 // set the dimensions of the canvas
-var margin = {top: 20, right: 20, bottom: 70, left: 40},
-    width = 600 - margin.left - margin.right,
-    height = 300 - margin.top - margin.bottom;
-
+var margin = {top:40, bottom:100, left:150, right:50},
+    width=1000-margin.left-margin.right,
+    height=600-margin.top-margin.bottom;
 
 // set the ranges
 var x = d3.scale.ordinal().rangeRoundBands([0, width], .05);
@@ -49,6 +20,14 @@ var yAxis = d3.svg.axis()
     .orient("left")
     .ticks(10);
 
+    var tip = d3.tip()
+  .attr('class', 'd3-tip')
+  .offset([-10, 0])
+  .html(function(d) {
+    return "<strong>value:</strong> <span style='color:white'>" + d.value+ "</span>";
+  })
+
+
 
 // add the SVG element
 var svg = d3.select("body").append("svg")
@@ -57,7 +36,7 @@ var svg = d3.select("body").append("svg")
   .append("g")
     .attr("transform", 
           "translate(" + margin.left + "," + margin.top + ")");
-
+      svg.call(tip);
 
 // load the data
 d3.json("../JSON/commercial.json", function(error, data) {
@@ -80,7 +59,7 @@ d3.json("../JSON/commercial.json", function(error, data) {
 
   // add axis
   svg.append("g")
-      .attr("class", "x axis")
+      .attr("class", "axis")
       .attr("transform", "translate(0," + height + ")")
       .call(xAxis)
     .selectAll("text")
@@ -90,14 +69,13 @@ d3.json("../JSON/commercial.json", function(error, data) {
       .attr("transform", "rotate(-90)" );
 
   svg.append("g")
-      .attr("class", "y axis")
+      .attr("class", "axis")
       .call(yAxis)
     .append("text")
       .attr("transform", "rotate(-90)")
       .attr("y", 5)
       .attr("dy", ".71em")
       .style("text-anchor", "end")
-      .text("Frequency");
 
 
   // Add bar chart
@@ -108,10 +86,13 @@ d3.json("../JSON/commercial.json", function(error, data) {
       .attr("x", function(d) { return x(d.year); })
       .attr("width", x.rangeBand())
       .attr("y", function(d) { return y(d.value); })
-      .attr("height", function(d) { return height - y(parseFloat(d.value)); });
+      .attr("height", function(d) { return height - y(parseFloat(d.value)); })
+         .on('mouseover', tip.show)
+         .on('mouseout', tip.hide)
 
-});
+        });
 
-</script>
-
-</body>
+          function type(d) {
+          d.value = +d.value ;
+          return d;
+}

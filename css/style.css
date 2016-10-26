@@ -1,0 +1,24 @@
+/*body's background*/
+body
+{
+	background-color: rgb(213, 255, 255);	
+}
+h1
+{
+	font-family:'PT Sans',sans-serif;
+	text-align: center;
+	margin:50px 0px 100px 0px;
+	color: #82b62d;
+}
+h3
+{
+	font-family:'PT Sans',sans-serif;
+	text-align: center;
+	margin:50px 100px 100px 100px;
+	text-decoration: none;
+}
+h3 a
+{
+	text-decoration: none;
+	color: #7a7a7a;
+}

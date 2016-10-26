@@ -1,41 +1,4 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>stacked chart of rice production in the 4 southern states</title>
-    <h1 align="center">Rice Production in the 4 southern states</h1>
-    <style>
-      body
-      {
-        background-color: #efefef;
-      }
-      .bar1
-      {
-        fill:green;
-      }
-      .legend
-      {
-        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-        font-size: 50%;
-        text-align: right;
-      }
-      .axis 
-      {
-        font: 10px "Helvetica Neue";
-        font-size: 12px;
-        font-weight: bold;
-      }
-      .axis path,.axis line
-      {
-        fill: none;
-        stroke: red;
-      }
-    </style>
-  </head>
-  <body >
-    <br> 
-    <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
-    <script>
+
      // set the dimensions of the canvas
       var margin={top:40, bottom:100, left:150, right:50},
         width=1000-margin.left-margin.right,
@@ -128,7 +91,7 @@
             .style("font-size","15px")
             .style("font-weight","bold")
             .style("color","red")
-            .text("K/Ha");
+            .text("Kg/Ha");
              
         var legend = svg.selectAll(".legend")
           .data(color.domain().slice())
@@ -152,7 +115,3 @@
             .text(function(d,i) { return xData[i]; });
             
       });
-    </script>
-    <br>
-  </body>
-</html>
