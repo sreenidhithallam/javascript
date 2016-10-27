@@ -1,24 +1,33 @@
-
+/*axis styling*/
 .axis path,
-.axis line {
+.axis line 
+{
   fill: none;
   stroke: #000;
   shape-rendering: crispEdges;
 }
 
-.bar {
-  fill: #00bfff;
-}
-
-.bar:hover {
-  fill: steelblue ;
-}
-
-.x.axis path {
+.x.axis path
+{
   display: none;
 }
 
-.d3-tip {
+
+/*bar styling*/
+.bar 
+{
+  fill: #00bfff;
+}
+
+.bar:hover 
+{
+  fill: steelblue ;
+}
+
+/* tooltip */
+
+.d3-tip 
+{
   line-height: 1;
   font-weight: bold;
   padding: 12px;
@@ -28,7 +37,8 @@
 }
 
 /* Creates a small triangle extender for the tooltip */
-.d3-tip:after {
+.d3-tip:after 
+{
   box-sizing: border-box;
   display: inline;
   font-size: 10px;
@@ -41,7 +51,8 @@
 }
 
 /* Style northward tooltips differently */
-.d3-tip.n:after {
+.d3-tip.n:after 
+{
   margin: -1px 0 0 0;
   top: 100%;
   left: 0;

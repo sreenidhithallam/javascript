@@ -1,24 +1,29 @@
-      .bar1
-      {
-        fill:green;
-      }
-      .legend
-      {
-        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-        font-size: 50%;
-        text-align: right;
-        fill:steelblue;
-      }
-      .axis 
-      {
-        font: 10px "Helvetica Neue";
-        font-size: 12px;
-        font-weight: bold;
-        fill:steelblue;
-      }
-      .axis path,.axis line
-      {
-        fill: none;
-        stroke: red;
-      }
-    </style>
+/* bar styling */
+.bar1
+{
+  fill:green;
+}
+      
+/* legend styling */
+.legend
+{
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 50%;
+  text-align: right;
+  fill:steelblue;
+}
+     
+/* axis styling */
+.axis 
+{
+  font: 10px "Helvetica Neue";
+  font-size: 12px;
+  font-weight: bold;
+  fill:steelblue;
+}
+
+.axis path,.axis line
+{
+  fill: none;
+  stroke: red;
+}
